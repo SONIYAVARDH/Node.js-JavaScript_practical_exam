@@ -1,0 +1,88 @@
+Ans.1) - Node.js is a powerful open source,server side JavaScript run time environment.It allows you to run JavaScript code outside of a web browser.
+         making it possible to create scalable and efficient web application. It is uses an even-driven, non-blocking I/O model ,which makes it lightweight and 
+         perfect for building data-itensive real-time application.
+         Node.js is free. Node.js runs on various platforms(Window,unix,Linux, mac OS X etc.)
+
+
+ans.2)- Modules is a same as javascript or python libraries. Modules can be set of functions you want to include in your application.
+        node.js has a set of built-in modules which you can without any further installation.
+
+ans.3)- create a file with the name of server1.js for create web server that listen to server port gives response back to the client using HTTp module.
+
+
+        
+var http = require('http');
+// create  a server object:
+http.createServer(function(req,res)
+{
+    res.write("Hello, I am your web server responding you!!!");
+    res.end(); // end the  response
+    console.log("Web server is  running at 8080 port number!!!");
+}).listen(8080); // the server object listens on port 8080
+
+output:
+
+web server is running at 8080 port number
+
+Hello, I am your web server responding you!!!
+
+
+
+ans.4)- create a file with the name of server2.js and DemoFile1.html for reads the HTML file,and return the content using the File System module.
+
+
+
+   var http = require('http');
+   var fs = require('fs');
+
+   http.createServer(function(req,res)
+  {
+    fs.readFile('DemoFile1.html', function(err,data){
+        res.writeHead(200,{'content-Type': 'text/html'});
+        res.write(data);
+        console.log("Server is running at 8080 port number")
+        return res.end();
+  });
+}).listen(8080);
+
+
+DemoFile1.html:
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Node.js File System</title>
+</head>
+<body>
+    <h1>Reading HTML File</h1>
+    <p>Node.js file that read html file and return the content</p>
+</body>
+</html>
+
+
+output:
+ web server is running port at 8080 port number
+
+Reading HTML File
+Node.js file that read html file and return the content
+
+
+
+ans.5)- create a file with the name of server3.js and newfile1.txt for deleting the existing file using the file system module.
+
+
+ var fs = require('fs');
+ fs.unlink('newfile1.txt',function(err)
+ {
+    if(err) throw err;
+    console.log('File Deleted!');
+ });
+
+ output: at terminal
+
+File Deleted!
+ 
+
